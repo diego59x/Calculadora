@@ -13,6 +13,18 @@
  */
 public class Calculadora implements iCalculadora{
     int resultado;
+    private static Calculadora miCalculadora;
+    
+    public static Calculadora SingletonInstance(){
+        if (miCalculadora == null){
+            miCalculadora = new Calculadora();
+        }
+        return miCalculadora;
+    }
+    
+    private Calculadora(){
+   
+    }
     
     public int sumar(int operando1, int operando2){
         resultado = operando1 + operando2;  
