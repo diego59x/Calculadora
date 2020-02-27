@@ -3,12 +3,13 @@ public class SinglyLinkedList<E> extends AbstractList<E>
 
    protected int count; // list size
    protected Node<E> head; // ref. to first element
-
+   protected SinglyLinkedList<E> data;
    public SinglyLinkedList()
    // post: generates an empty list
    {
       head = null;
       count = 0;
+      data = new Vector<E>();
    }
    
    public int size()
@@ -65,17 +66,26 @@ public class SinglyLinkedList<E> extends AbstractList<E>
    }
    
    
-   public boolean contains(E value)
-   // pre: value is not null
-   // post: returns true iff value is found in list
+   public void push(E item)
+  // post: the value is added to the stack
+  //          will be popped next if no intervening push
   {
-      Node<E> finger = head;
-	  
-      while (finger != null &&
-             !finger.value().equals(value))
-     {
-          finger = finger.next();
-      }
-      return finger != null;
-   }
+    data.add(item);
+  }
+
+  public E pop()
+  // pre: stack is not empty
+  // post: most recently pushed item is removed and returned
+  {
+    return data.remove(size()-1);
+  }
+
+  public E peek()
+  // pre: stack is not empty
+  // post: top value (next to be popped) is returned
+  {
+    return data.get(size() - 1);
+  }
+ 
+
  }

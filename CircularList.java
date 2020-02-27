@@ -2,12 +2,13 @@ public class CircularList<E> extends AbstractList<E>{
 
 protected Node<E> tail; 
 protected int count;
-
+protected CircularList<E> data;
 public CircularList()
 // pre: constructs a new circular list
 {
    tail = null;
    count = 0;
+   data = new Vector<E>();
 }
 
 public void addFirst(E value)
@@ -58,4 +59,29 @@ public E removeLast()
    count--;
    return temp.value();
 }
+  public void push(E item)
+  // post: the value is added to the stack
+  //          will be popped next if no intervening push
+  {
+    data.add(item);
+  }
+
+  public E pop()
+  // pre: stack is not empty
+  // post: most recently pushed item is removed and returned
+  {
+    return data.remove(size()-1);
+  }
+
+  public E peek()
+  // pre: stack is not empty
+  // post: top value (next to be popped) is returned
+  {
+    return data.get(size() - 1);
+  }
+  public int size()
+  // post: returns the number of elements in the stack
+  {
+    return data.size();
+  }
 }
