@@ -22,3 +22,4 @@ public DoublyLinkedNode(E v)
 {
     this(v,null,null);
 }
+}

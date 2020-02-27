@@ -15,19 +15,25 @@ public class Main {
    
     public static void main(String[] args) throws Exception{
     Scanner scan = new Scanner(System.in);
+    // Llamada al factory:
     StackFactory<String> sFactory = new StackFactory<String>();
-    iCalculadora calculadora = new Calculadora();
-    System.out.println("¿De que manera desea calcular la expresion?\n 1. ArrayList \n 2. Vector\n 3. Lista");
+    ListFactory<String> lFactory = new ListFactory<String>();
+    // Se hace empleo de singleton 
+    Calculadora calculadora = Calculadora.SingletonInstance();
+    System.out.println("¿De que manera desea calcular la expresion?\n 1. ArrayList \n 2. Vector\n 3. CircularList \n 4. Lista simple\n 5. Lista doble");
     String opcion = scan.nextLine();
-    // llamada al factory:
+    IStack<String> miStack = sFactory.getStack(opcion);
+    List<String> miLista = lFactory.getList(opcion);
+    
+    
+
     
     //  1: implementacion con ArrayList
     //  2: implementacion con Vector
     //  3: Implementacion con Stack
-    IStack<String> miStack = sFactory.getStack(opcion);
+    
     // variables
     String info = "\n";
-    ArrayList numeros = new ArrayList();
     int operando1;
     int operando2 ;
     int total = 0;

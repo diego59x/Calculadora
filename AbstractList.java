@@ -1,4 +1,4 @@
-public abstract class AbstractList<E>
+abstract public class AbstractList<E>
        implements List<E>
 {
    public AbstractList()
@@ -18,3 +18,4 @@ public abstract class AbstractList<E>
   {
 	return -1 != indexOf(value);
   }
+}

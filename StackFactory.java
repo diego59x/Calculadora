@@ -3,11 +3,11 @@ class StackFactory<E> {
 //se utiliza el patron Factory
    public IStack<E> getStack(String entry) {
     // seleccion de la implementacion a utilizar:
-	if (entry.equals("1"))
-      return new StackArrayList<E>(); //regresa ArrayList
-	else //if(entry.equals("2"))
-      return new StackVector<E>(); //regresa Vector
-  	//else if(entry.equals("3"));
-  	//  return new Stack<E>();  //regresa Stack
-   }
+		if (entry.equals("1"))
+      		return new StackArrayList<E>(); //regresa ArrayList
+		else if(entry.equals("2"))
+      		return new StackVector<E>(); //regresa Vector
+		return null;
+	}
+   
 }
